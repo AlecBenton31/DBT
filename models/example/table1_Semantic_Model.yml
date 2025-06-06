@@ -1,0 +1,43 @@
+semantic_models:
+  - name: table1
+    model: ref('table1')
+    description: "Semantic model for table1 in POC.public"
+    entities:
+      - name: id
+        type: primary
+    dimensions:
+      - name: name
+        type: categorical
+      - name: updated_at
+        type: time
+        type_params:
+          time_granularity: day
+    measures:
+      - name: total_rows
+        description: "Total rows in table1"
+        agg: count
+        expr: 1
+        agg_time_dimension: updated_at
+
+      - name: distinct_names
+        description: "Distinct count of name"
+        agg: count_distinct
+        expr: name
+        agg_time_dimension: updated_at
+
+metrics:
+  - name: total_rows
+    label: "Total Rows"
+    description: "Total number of rows in table1"
+    type: simple
+    type_params:
+      measure:
+        name: total_rows
+
+  - name: distinct_names
+    label: "Distinct Names"
+    description: "Total unique names"
+    type: simple
+    type_params:
+      measure:
+        name: distinct_names
