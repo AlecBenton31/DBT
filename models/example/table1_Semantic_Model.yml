@@ -25,6 +25,12 @@ semantic_models:
         expr: name
         agg_time_dimension: updated_at
 
+      - name: total_amount
+        description: "Sum of all amounts"
+        agg: sum
+        expr: amount
+        agg_time_dimension: updated_at
+
 metrics:
   - name: total_rows
     label: "Total Rows"
@@ -41,3 +47,11 @@ metrics:
     type_params:
       measure:
         name: distinct_names
+
+  - name: total_amount
+    label: "Total Amount"
+    description: "Sum of all amounts in table1"
+    type: simple
+    type_params:
+      measure:
+        name: total_amount
