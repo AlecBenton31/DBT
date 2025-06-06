@@ -12,6 +12,8 @@ semantic_models:
         type: time
         type_params:
           time_granularity: day
+      - name: amount
+        type: categorical
     measures:
       - name: total_rows
         description: "Total rows in table1"
