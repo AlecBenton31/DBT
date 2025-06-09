@@ -2,13 +2,16 @@ semantic_models:
   - name: metricflow_time_spine
     model: ref('metricflow_time_spine')
     description: A time spine with one row per day.
+
     defaults:
-      agg_time_dimension: date_day_dim
+      agg_time_dimension: date_day
+
     entities:
       - name: date_day
         type: primary
+
     dimensions:
-      - name: date_day_dim
+      - name: date_day
         type: time
         type_params:
           time_granularity: day
